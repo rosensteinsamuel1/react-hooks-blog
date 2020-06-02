@@ -6,6 +6,11 @@ function BlogForm(props) {
 
   const submitHandler = event => {
     event.preventDefault();
+    props.addPost({
+      title: enteredTitle,
+      content: enteredContent,
+      id: Math.floor(Math.random() * 1000)
+    });
     setEnteredTitle("");
     setEnteredContent("");
   };
