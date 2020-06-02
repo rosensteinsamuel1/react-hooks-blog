@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BlogForm from "./BlogForm";
+import BlogPosts from "./BlogPosts";
 
 function Blog() {
   const [posts, setPosts] = useState([]);
@@ -8,7 +9,12 @@ function Blog() {
     console.log(post);
     setPosts(prevPosts => [...prevPosts, post]);
   };
-  return <BlogForm addPost={addPostHandler} />;
+  return (
+    <div>
+      <BlogForm addPost={addPostHandler} />
+      <BlogPosts posts={posts} />
+    </div>
+  );
 }
 
 export default Blog;
