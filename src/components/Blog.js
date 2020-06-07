@@ -40,10 +40,18 @@ function Blog() {
     );
   };
 
+  const onDeleteHandler = id => {
+    setPosts(prevPosts => prevPosts.filter(p => p.id !== id));
+  };
+
   return (
     <div>
       <BlogForm addPost={addPostHandler} />
-      <BlogPosts posts={posts} onLike={onLikeHandler} />
+      <BlogPosts
+        posts={posts}
+        onLike={onLikeHandler}
+        onDelete={onDeleteHandler}
+      />
     </div>
   );
 }
