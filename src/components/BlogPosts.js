@@ -1,4 +1,6 @@
 import React from "react";
+import Heart from "../assets/heart.svg";
+import HeartSolid from "../assets/heart-solid.svg";
 
 function BlogPosts(props) {
   return (
@@ -11,6 +13,12 @@ function BlogPosts(props) {
               <b>{post.title}</b>
             </div>
             <div>{post.content}</div>
+            <img
+              onClick={() => props.onLike(post.id)}
+              src={post.isLiked ? HeartSolid : Heart}
+              alt="heart-logo"
+              style={{ width: "20px" }}
+            />
           </li>
         ))}
       </ul>
